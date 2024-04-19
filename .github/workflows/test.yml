@@ -14,4 +14,4 @@ jobs:
       - name: Print the message input
         run: ${{ inputs.message }}
 
-      - run: $input.message
+      - run: $input.message 
