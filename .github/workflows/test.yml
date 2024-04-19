@@ -12,6 +12,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Print the message input
-        run: ${{ inputs.message }}
+        run: echo ${{ inputs.message }}
 
       - run: $input.message 
