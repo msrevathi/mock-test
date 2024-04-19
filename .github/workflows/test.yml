@@ -1,5 +1,7 @@
 on: 
     push:
+        branches: 
+            - 'testing'
 
 jobs:
     build:
