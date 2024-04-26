@@ -1,14 +1,21 @@
-name: example-workflow
-on: 
+on:
   push:
 
 jobs:
-  deploy:
-    if: ${{github.repository == 'msrevathi/mock-test'}}
+  build:
     runs-on: ubuntu-latest
     steps:
-    - name: Dump GitHub context
-      env:
-        GITHUB_CONTEXT: ${{ toJson(github) }}
-      run: echo "$GITHUB_CONTEXT"
+    - run: echo build
 
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - run: exit 1
+
+  reports:
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo reports
+
+        
