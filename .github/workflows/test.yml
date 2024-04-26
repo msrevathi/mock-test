@@ -7,8 +7,9 @@ env:
 jobs:
   windows-job:
     runs-on: 
-      - windows-latest
+      - ubuntu-latest
     steps:
       - name: Run ONLY on Windows
-        if: ${{ runner.os == 'windows-latest' }}
-        run: echo "The operating system is $env:RUNNER_OS."
+        run: |
+          echo ${{ env.DAY_OF_WEEK}}
+          echo $DAY_OF_WEEK
