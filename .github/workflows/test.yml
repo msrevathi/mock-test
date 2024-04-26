@@ -4,7 +4,7 @@ on:
 
 jobs:
   deploy:
-    # if: github.repository == 'octo-org/octo-repo-prod'
+    if: ${{github.repository == 'msrevathi/mock-test'}}
     runs-on: ubuntu-latest
     steps:
     - name: Dump GitHub context
