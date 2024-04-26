@@ -10,5 +10,5 @@ jobs:
       - windows-latest
     steps:
       - name: Run ONLY on Windows
-        if: ${{ runner.os == 'Windows' || env.DAY_OF_WEEK == 'Monday' }}
+        if: ${{ runner.os == 'windows-latest' }}
         run: echo "The operating system is $env:RUNNER_OS."
