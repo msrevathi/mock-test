@@ -1,27 +1,14 @@
-on:
+name: example-workflow
+on: 
   push:
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-    - run: exit 1
-
-  test:
-    needs: [build]
-    runs-on: ubuntu-latest
-    steps:
-    - run: echo test
-
   deploy:
-    needs: [test, build]
+    # if: github.repository == 'octo-org/octo-repo-prod'
     runs-on: ubuntu-latest
     steps:
-    - run: echo deploy
+    - name: Dump GitHub context
+      env:
+        GITHUB_CONTEXT: ${{ toJson(github) }}
+      run: echo "$GITHUB_CONTEXT"
 
-  reports:
-    runs-on: ubuntu-latest
-    steps:
-    - run: echo reports
-
-        
