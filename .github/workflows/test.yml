@@ -1,22 +1,13 @@
-on:
+on: 
   push:
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  windows-job:
+    runs-on: 
+      - macos-latest
+      - windows-latest
+      - ubuntu-latest
     steps:
-    - run: echo build
-
-  test:
-    runs-on: ubuntu-latest
-    steps:
-    - run: exit 1
-
-  reports:
-    if: always()
-    needs: test
-    runs-on: ubuntu-latest
-    steps:
-    - run: echo reports
-
-        
+      - name: Run ONLY on Windows
+        if: runner.os == 'Windows'
+        run: echo "The operating system on the runner is $env:RUNNER_OS."
