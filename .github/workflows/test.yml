@@ -13,4 +13,4 @@ jobs:
     steps:
       - name: Run ONLY on Windows
         if: ${{ runner.os == 'Windows' || env.DAY_OF_WEEK == 'Monday' }}
-        run: echo "The operating system on the runner is $env:RUNNER_OS."
+        run: echo "The operating system is $env:RUNNER_OS."
