@@ -1,15 +1,17 @@
 on: 
   push:
 
-env:
-  DAY_OF_WEEK: Friday
-
 jobs:
   windows-job:
     runs-on: 
       - ubuntu-latest
     steps:
-      - name: Run ONLY on Windows
+      - name: Step 1 - set output
+        id: step1
         run: |
-          echo ${{ env.DAY_OF_WEEK}}
-          echo $DAY_OF_WEEK
+          echo "action_proccess_id=UID-7890" >> "$GITHUB_OUTPUT"
+
+      - name: Step 2 - print output value
+        id: step2
+        run: |
+          echo ${{ steps.step1.outputs.action_proccess_id }}
