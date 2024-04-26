@@ -1,17 +1,23 @@
 on:
-  workflow_dispatch:
-    inputs:
-      message:
-        description: 'Provide a custom message'
-        required: true
-        default: 'Hello World'
-        type: string
+  push:
 
 jobs:
-  print-data:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Print the message input
-        run: echo ${{ inputs.message }}
+    - run: echo build
 
-      - run: $input.message 
+  test:
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo test
+
+  deploy:
+    needs: [test, build]
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo deploy
+
+
+        
