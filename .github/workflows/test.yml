@@ -8,8 +8,6 @@ jobs:
     steps:
       - name: Accessing Secret
         id: step2
-        env:
-          api_key_variable: secrets.PROD_API_KEY 
-        if: env.api_key_variable != ''
         run: |
-          echo "Secret vaule is - ${{secrets.PROD_API_KEY}}"
+          echo "Secret vaule is - ${{env.GITHUB_ACTOR}}"
+          ${{env.github.actor}}
