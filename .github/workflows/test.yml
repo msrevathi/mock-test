@@ -9,9 +9,10 @@ jobs:
       - name: Step 1 - set output
         id: step1
         run: |
-          echo "action_proccess_id=UID-7890" >> "$GITHUB_OUTPUT"
+          echo ${{secrets.test12}}
 
       - name: Step 2 - print output value
         id: step2
+        if: secrets.test12 != null
         run: |
-          echo ${{ steps.step1.outputs.action_proccess_id }}
+          echo ${{secrets.test12}}
