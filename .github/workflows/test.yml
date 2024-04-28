@@ -2,13 +2,10 @@ on:
   push:
 
 jobs:
-  secret-job:
-    runs-on: 
-      - ubuntu-latest
+  unit-testing:
+    name: Unit Testing
+    runs-on: ubuntu-*
     steps:
-      - name: Accessing Secret
-        id: step2
-        run: |
-          echo ${{vars.url}}
-          echo $vars.url
-          echo vars.url
+    - name: Checkout Repository
+      run: echo 123
+
