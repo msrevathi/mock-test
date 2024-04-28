@@ -10,4 +10,6 @@ jobs:
         id: step2
         run: |
           echo "Secret vaule is - $GITHUB_ACTOR"
-          $github.actor
+          ${{ github.actor}}
+          ${{ github.ref }}
+          github.actor
