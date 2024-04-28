@@ -9,7 +9,6 @@ jobs:
       - name: Accessing Secret
         id: step2
         run: |
-          echo "Secret vaule is - $GITHUB_ACTOR"
-          ${{ github.actor}}
-          ${{ github.ref }}
-          github.actor
+          echo ${{vars.url}}
+          echo $vars.url
+          echo vars.url
