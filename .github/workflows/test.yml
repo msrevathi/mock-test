@@ -11,8 +11,10 @@ jobs:
         run: |
           echo ${{secrets.test12}}
 
-      # - name: Step 2 - print output value
-      #   id: step2
-      #   if: secrets.test12 != null
-      #   run: |
-      #     echo ${{secrets.test12}}
+      - name: Step 2 - print output value
+        id: step2
+        env:
+          repo_secret: secrets.test12 
+        if: env.repo_secret != ''
+        run: |
+          echo ${{secrets.test12}}
