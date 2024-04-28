@@ -2,19 +2,14 @@ on:
   push:
 
 jobs:
-  windows-job:
+  secret-job:
     runs-on: 
       - ubuntu-latest
     steps:
-      - name: Step 1 - set output
-        id: step1
-        run: |
-          echo ${{secrets.test12}}
-
-      - name: Step 2 - print output value
+      - name: Accessing Secret
         id: step2
         env:
-          repo_secret: secrets.test12 
-        if: env.repo_secret != ''
+          api_key_variable: secrets.PROD_API_KEY 
+        if: env.api_key_variable != ''
         run: |
-          echo ${{secrets.test12}}
+          echo "Secret vaule is - ${{secrets.PROD_API_KEY}}"
