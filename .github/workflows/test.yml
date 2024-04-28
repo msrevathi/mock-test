@@ -9,5 +9,5 @@ jobs:
       - name: Accessing Secret
         id: step2
         run: |
-          echo "Secret vaule is - ${{env.GITHUB_ACTOR}}"
-          ${{env.github.actor}}
+          echo "Secret vaule is - $GITHUB_ACTOR"
+          $github.actor
