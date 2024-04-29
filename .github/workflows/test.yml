@@ -1,10 +1,14 @@
-on: 
-  push:
+name: wow wowo wowow
 
+on: push
+concurrency: 
+  cancel-in-progress: false
+  group: asd
+    
 jobs:
   unit-testing:
     name: Unit Testing
-    runs-on: ubuntu-*
+    runs-on: 
     steps:
     - name: Checkout Repository
       run: echo 123
