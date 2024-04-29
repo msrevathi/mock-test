@@ -6,10 +6,16 @@ concurrency:
   group: asd
     
 jobs:
-  unit-testing:
-    name: Unit Testing
-    runs-on: 
+  deploy:
+    environment: 
+      name: development
+    name: Kubernetes Deploy
+    runs-on: ubuntu-latest
     steps:
     - name: Checkout Repository
-      run: echo 123
+      uses: actions/checkout@v4
 
+    - name: Setup NodeJS Version
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.nodejs_version }}
